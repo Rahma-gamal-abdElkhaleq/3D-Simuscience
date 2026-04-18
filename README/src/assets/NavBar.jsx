@@ -1,64 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
- import logo from "./logo.png"
-  
+import logo from "./logo.png";
+
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    
-    <nav className="navbar navbar-expand-lg custom-navbar">
-       
- 
-      <div className="container-fluid">
-        
-       
-        
-       
-
-        {/* Links */}
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          <ul className="navbar-nav ms-auto">
-
-            <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/">Home</Link>
-            </li>
-
-            {/* <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/lab">About us</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/elements">Contact us</Link>
-            </li> */}
-
-            <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/Register">Register</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/Login">Login</Link>
-            </li>
-
-            <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/UserProfile">User Profile</Link>
-            </li>
-              <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/Review">Review</Link>
-            </li>
-             <li className="nav-item">
-              <Link className="nav-link nav-link-item" to="/ChemicalTools">ChemicalTools</Link>
-            </li>
-               
-          </ul>
-           
- 
-
-        </div>
-         
-      </div>
+    <nav className="custom-navbar">
       <div className="navbar-logo">
-          <img src={logo} alt="Logo" className="lo1" />
-        </div>
+        <img src={logo} alt="Logo" className="lo1" />
+      </div>
+
+      {/* زر الهامبرجر */}
+      <button className="menu-toggle" onClick={toggleMenu}>
+        ☰
+      </button>
+
+      {/* روابط النافبار */}
+      <ul className={`navbar-nav ${isOpen ? "active" : ""}`}>
+        <li><Link className="nav-link-item" to="/" onClick={closeMenu}>Home</Link></li>
+        <li><Link className="nav-link-item" to="/Register" onClick={closeMenu}>Register</Link></li>
+        <li><Link className="nav-link-item" to="/Login" onClick={closeMenu}>Login</Link></li>
+        <li><Link className="nav-link-item" to="/UserProfile" onClick={closeMenu}>User Profile</Link></li>
+        <li><Link className="nav-link-item" to="/Review" onClick={closeMenu}>Review</Link></li>
+        <li><Link className="nav-link-item" to="/ChemicalTools" onClick={closeMenu}>Chemical Tools</Link></li>
+      </ul>
     </nav>
   );
 }
