@@ -79,14 +79,77 @@ export default function ChemicalTools() {
 
 // 🎨 Styles
 const styles = {
-  page: { padding: "20px", textAlign: "center" },
-  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", gap: "20px", marginTop: "20px" },
-  card: { padding: "15px", background: "#f5f5f5", borderRadius: "10px", cursor: "pointer" },
-  cardImg: { width: "100px", height: "100px", objectFit: "contain" },
-  overlay: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: "center", justifyContent: "center" },
-  modal: { background: "rgba(255,255,255,0.95)", borderRadius: "15px", padding: "20px", width: "70%", maxWidth: "700px", textAlign: "left", position: "relative" },
-  closeBtn: { position: "absolute", top: "10px", right: "10px", border: "none", background: "none", fontSize: "20px", cursor: "pointer" },
-  content: { display: "flex", flexDirection: "row", gap: "20px", alignItems: "center" }, // النص جنب الصورة
-  textContent: { flex: 1 }, // النص ياخد المساحة المتبقية
-  toolImg: { width: "300px", borderRadius: "10px" }
+  page: { 
+    padding: "20px", 
+    textAlign: "center" 
+  },
+
+  grid: { 
+    display: "grid", 
+    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", 
+    gap: "20px", 
+    marginTop: "20px" 
+  },
+
+  card: { 
+    padding: "15px", 
+    background: "#f5f5f5", 
+    borderRadius: "12px", 
+    cursor: "pointer",
+    transition: "0.3s"
+  },
+
+  cardImg: { 
+    width: "100px", 
+    height: "100px", 
+    objectFit: "contain" 
+  },
+
+  overlay: { 
+    position: "fixed", 
+    inset: 0, 
+    background: "rgba(0,0,0,0.6)", 
+    display: "flex", 
+    alignItems: "center", 
+    justifyContent: "center",
+    padding: "10px" // مهم للموبايل
+  },
+
+  modal: { 
+    background: "rgba(255,255,255,0.97)", 
+    borderRadius: "15px", 
+    padding: "20px", 
+    width: "90%",              // 👈 بدل 70%
+    maxWidth: "450px",        // 👈 مناسب للموبايل
+    textAlign: "left", 
+    position: "relative" 
+  },
+
+  closeBtn: { 
+    position: "absolute", 
+    top: "10px", 
+    right: "10px", 
+    border: "none", 
+    background: "none", 
+    fontSize: "22px", 
+    cursor: "pointer" 
+  },
+
+  content: { 
+    display: "flex", 
+    flexDirection: "column",   // 👈 دا أهم تعديل (بدل row)
+    gap: "15px", 
+    alignItems: "center", 
+    textAlign: "center"
+  },
+
+  textContent: { 
+    width: "100%" 
+  },
+
+  toolImg: { 
+    width: "100%", 
+    maxWidth: "180px",        // 👈 يخليها مناسبة للموبايل
+    borderRadius: "10px" 
+  }
 };
